@@ -57,6 +57,22 @@ document.addEventListener('DOMContentLoaded',  function(){
             });
         }
     }
+    function filteringTheGenre() {
+        const selectedGenre = genreDropdown.value.toLowerCase();
+        moviesContainer.innerHTML = '';
+        if (!selectedGenre) {
+            displayAllMovies();
+            return;
+        }
+        const filteredMovies = allMovies.filter(movie => 
+            movie.Genre.toLowerCase().includes(selectedGenre)
+        );
+        if (filteredMovies.length > 0) {
+            filteredMovies.forEach(movie => displayMovie(movie));
+        } else {
+            alert( `No ${selectedGenre} movies found.`);
+        }
+    }
 
 
 })
