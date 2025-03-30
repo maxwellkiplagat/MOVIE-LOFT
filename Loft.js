@@ -95,6 +95,38 @@ document.addEventListener('DOMContentLoaded',  function(){
         };
         moviesContainer.appendChild(moviediv);
     }
+    function previewTrailer(trailerId) {
+        // creatinf a div
+        const gatsby = document.createElement('div');
+        gatsby.className = 'tubeBox';
+        
+        const Content = document.createElement('div');
+        Content.className = 'main-content';
+        
+        const closeButton = document.createElement('span');
+        closeButton.className = 'close-sign';
+        closeButton.innertext = 'X';
+        
+        const iframe = document.createElement('iframe');
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        
+        // youtube  video source
+        if (trailerId.length === 11) { 
+            iframe.src = `https://www.youtube.com/embed/${trailerId}?autoplay=1`;
+        }
+        Content.appendChild(closeButton);
+        Content.appendChild(iframe);
+        gatsby.appendChild(Content);
+        document.body.appendChild(gatsby);
+        
+        // Close functionality
+        closeButton.onclick = () => gatsby.remove();
+        gatsby.onclick = (e) => {
+            if (e.target === gatsby) gatsby.remove();
+        };
+    }
 
 
 })
