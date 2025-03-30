@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded',  function(){
     const moviesContainer = document.getElementById('movies-container');
     const movieTemplate = document.getElementById('movie-template');
     const myform = document.getElementById('dataForm')
-    const trailerButton = moviediv.querySelector('.movie-trailer');
+    
     //varible to keep movie array after fetching
     let allMovies = [];
     //function to fetch the data from the url and siplaying the first movie in the db
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded',  function(){
         moviediv.querySelector('.movie-genre').textContent = movie.Genre;
         moviediv.querySelector('.movie-plot').textContent = movie.Plot;
         //the trailer button
+        const trailerButton = moviediv.querySelector('.movie-trailer');
         trailerButton.textContent = 'Play Trailer';
         trailerButton.href = '#';
         trailerButton.onclick = (e) => {
@@ -105,7 +106,7 @@ document.addEventListener('DOMContentLoaded',  function(){
         
         const closeButton = document.createElement('span');
         closeButton.className = 'close-sign';
-        closeButton.innertext = 'X';
+        closeButton.innerHTML = '&times';
         
         const iframe = document.createElement('iframe');
         iframe.setAttribute('frameborder', '0');
@@ -148,19 +149,21 @@ document.addEventListener('DOMContentLoaded',  function(){
     })
     function toggleForm() {
         const form = document.getElementById('dataForm');
-        const currentOpacity = window.getComputedStyle(form).opacity;
-        
-        form.style.opacity = currentOpacity === '0' ? '1' : '0';
-        form.style.visibility = currentOpacity === '0' ? 'visible' : 'hidden';
-        form.style.pointerEvents = currentOpacity === '0' ? 'auto' : 'none';   
+        if (form.style.visibility === 'hidden' || form.style.visibility === '') {
+            form.style.visibility = 'visible';
+            form.style.pointerEvents = 'auto';
+        } else {
+            form.style.visibility = 'hidden';
+            form.style.pointerEvents = 'none';
+        }
+
     }
-    document.getElementById('addMovie').addEventListener('click', toggleForm);    showAllButton.addEventListener('click', displayAllMovies);
+    document.getElementById('addMovie').addEventListener('click', toggleForm);
+    showAllButton.addEventListener('click', displayAllMovies);
     genreDropdown.addEventListener('change', filteringTheGenre);
     searchButton.addEventListener('click', userTypedMovie);
     searchInput.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') userTypedMovie();
-    });
-   
-
-
+    });  
+    loadFirstMovies();
 })
