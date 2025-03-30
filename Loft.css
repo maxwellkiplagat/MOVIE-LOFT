@@ -1,0 +1,250 @@
+
+body {
+    background-color:#006A71;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    max-width: 896px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 16px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: center;
+    font-family: "Syncopate", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  h2{
+    font-family: "Jura", sans-serif;
+  }
+  .search-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  #search-input{
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    margin-right: 8px;
+    background: #F0F0F3;
+  }
+  button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  #search-button {
+    background-color:green;
+    margin-right: 8px;
+    color: white;
+  }
+  #show-all-button {
+    background-color: #6b7280;
+  }
+  .movie {
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  @media (min-width: 768px) {
+    .movie {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .movie-poster-container {
+    border: 1px solid #d1d5db;
+    padding: 16px;
+    border-radius: 4px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .movie-poster {
+    width: 100%;
+    height: 100%;
+  }
+  .movie-info {
+    grid-column: span 2;
+  }
+  .movie-title-container, .movie-details-row, .movie-plot-container, .movie-trailer-container {
+    border: 1px solid #d1d5db;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+  .movie-title {
+    font-weight: bolder;
+    font-size: 20px;
+  }
+  .movie-details-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .movie-detail {
+    flex-grow: 1;
+  }
+  .movie-plot-container {
+    padding: 16px;
+  }
+  #movies-container {
+    padding: 16px 60px;
+  }
+  .movie-plot{
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: large;
+  }
+  .movie-trailer-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #ff0000; 
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      text-align: center;
+  }
+  #movie-container{
+    border: 1px solid black;
+  }
+  .select-button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    background-color: blue;
+    margin-right: 8px;
+    margin-left: 8PX;
+    cursor: pointer;
+    width: 70px;
+  }
+  
+  .select-button:focus {
+    outline: none; 
+  }
+  #genre{
+    text-align: center;
+  }
+  .select-button{
+    text-align: center;
+    width: auto;
+  }
+  .movie-detail{
+    border: 1px solid #d1d5db;
+    text-align:center ;
+    padding: 5px;
+  }
+  .movie-details-row{
+    border: none;
+    padding: 0px;
+  }
+/*div for showing the movie place in the middle top of the screen*/
+.tubeBox {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+
+}
+.main-content {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+}
+/* makes the x button in top right of the video div*/
+.close-sign {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color:red;
+  font-size: 30px;
+  cursor: pointer;
+}
+/* zooms the x button on hoover*/
+.close-sign:hover {
+  transform: scale(2);
+}
+/*giving the iframe a width of 100% of its parent and dipaying no border*/
+iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+/*making the main content  and iframe resposnsive*/
+@media (max-width: 768px) {
+  .main-content {
+      width: 95%;
+  }
+  iframe {
+      height: 300px;
+  }
+}
+/*styling the fieldset*/
+#dataForm > fieldset:nth-child(1){
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  margin-top: 30px;
+  justify-content: center;
+  padding: 20px;
+  background-color: white;
+}
+/* for making the form to be placec in the middle of the window */
+#movieForm{
+  display: flex;
+  justify-content: center;
+  
+}
+/*makes the button green and cenralizing it*/
+#submission{
+  background-color: green;
+  color: white;
+  margin-top: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #d1d5db;
+}
+#dataForm fieldset{
+  width: 190%;
+}
+#oleMovie{
+  width: 400px;
+}
+legend{
+  background-color: white;
+  padding: 5px;
+  border: 1px solid #d1d5db ;
+}
+/*makes the add button orange red*/
+#addMovie{
+  background-color: orangered;
+  color: white;
+}
+/*makes the form to be hidden in default*/
+#dataForm {
+    visibility: hidden;
+    pointer-events: none;
+}
+
