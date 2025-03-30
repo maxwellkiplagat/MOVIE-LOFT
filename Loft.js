@@ -146,6 +146,14 @@ document.addEventListener('DOMContentLoaded',  function(){
         })
         myform.reset()
     })
+    function toggleForm() {
+        const form = document.getElementById('dataForm');
+        const currentOpacity = window.getComputedStyle(form).opacity;
+        
+        form.style.opacity = currentOpacity === '0' ? '1' : '0';
+        form.style.visibility = currentOpacity === '0' ? 'visible' : 'hidden';
+        form.style.pointerEvents = currentOpacity === '0' ? 'auto' : 'none';   
+    }
 
 
 })
