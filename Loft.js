@@ -30,22 +30,32 @@ document.addEventListener('DOMContentLoaded',  function(){
         const searchTerm = searchInput.value.trim();
         
         if (!searchTerm) {
-            moviesContainer.innerHTML = '<p>Please enter a movie title to search</p>';
+            alert('Please enter a movie title to search');
             return;
         }
-
         const matchedMovie = allMovies.find(movie => 
             movie.Title.toLowerCase().includes(searchTerm.toLowerCase())
         );
-
         moviesContainer.innerHTML = '';
-
         if (matchedMovie) {
             displayMovie(matchedMovie);
         } else {
              alert(`I can't find "${searchTerm}" please try another movie 😊`);
         }
         searchInput.value = '';
+    }
+    //to display all the movie
+    function displayAllMovies() {
+        moviesContainer.innerHTML = '';
+        searchInput.value = '';
+        if (allMovies.length === 0) {
+        
+            return;
+        } else {
+            allMovies.forEach(movie => {
+                displayMovie(movie);
+            });
+        }
     }
 
 
