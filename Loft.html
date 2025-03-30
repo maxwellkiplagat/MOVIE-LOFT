@@ -31,6 +31,40 @@
                 <button  id="addMovie"><img src="./database-add.svg" id="add" srcset=""></button>
             </div>
         </header>
+        <main>         
+            <div class="movie" id="movie-template">
+                <!--POSTER DIV-->
+                <div>
+                <div class="movie-poster-container">
+                    <img alt="Movie Poster" class="movie-poster" src="https://i.pinimg.com/236x/0d/20/01/0d2001efe877741b135107e5c0200241.jpg"/>
+                </div>
+                </div>
+                <!--INFO SECTION DIV MOVIE DETAIL-->
+                <div class="movie-info">
+                <div>
+                    <div class="movie-title-container">
+                    <h2 class="movie-title">Movie Title</h2>
+                    </div>
+                    <div class="movie-details-row all">
+                    <div class="movie-detail">
+                        <p class="movie-genre">Genre</p>
+                    </div>
+                    <div class="movie-detail all">
+                        <p class="movie-year"></p>
+                    </div>
+                    </div>
+                    <div class="movie-plot-container">
+                    <p class="movie-plot">Plot</p>
+                    </div>
+                    <!--BUTTON FOR TRAILER-->
+                    <a class="movie-trailer movie-trailer-button" href="#" target="_blank">Watch Trailer</a>
+                </div>
+                </div>
+            </div>
+            <!--DIV FOR THE MAIN CONTENT FROM JS-->
+            <div id="movies-container" style="padding-left: 5px;padding-right: 5px;">        
+            </div>
+        </main>
     </div>
     
 </body>
