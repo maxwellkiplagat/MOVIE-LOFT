@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded',  function(){
     const moviesContainer = document.getElementById('movies-container');
     const movieTemplate = document.getElementById('movie-template');
     const myform = document.getElementById('dataForm')
+    const trailerButton = moviediv.querySelector('.movie-trailer');
     //varible to keep movie array after fetching
     let allMovies = [];
     //function to fetch the data from the url and siplaying the first movie in the db
@@ -72,6 +73,27 @@ document.addEventListener('DOMContentLoaded',  function(){
         } else {
             alert( `No ${selectedGenre} movies found.`);
         }
+    }
+    function displayMovie(movie) {
+        const moviediv = movieTemplate.cloneNode(true);
+        moviediv.style.display = 'grid';
+        //to prevent clash due to the clone id which must be unique
+        moviediv.removeAttribute('id'); 
+        //taking the movie info
+        moviediv.querySelector('.movie-poster').src = movie.Poster || 'https://via.placeholder.com/300x450?text=No+Poster';
+        moviediv.querySelector('.movie-poster').alt = movie.Title;
+        moviediv.querySelector('.movie-title').textContent = movie.Title;
+        moviediv.querySelector('.movie-year').textContent = `(${movie.Year})`;
+        moviediv.querySelector('.movie-genre').textContent = movie.Genre;
+        moviediv.querySelector('.movie-plot').textContent = movie.Plot;
+        //the trailer button
+        trailerButton.textContent = 'Play Trailer';
+        trailerButton.href = '#';
+        trailerButton.onclick = (e) => {
+            e.preventDefault();
+            previewTrailer(movie.trailer || movie.Title);
+        };
+        moviesContainer.appendChild(moviediv);
     }
 
 
