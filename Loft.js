@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded',  function(){
                 allMovies = data;
                 
                 if (allMovies.length > 0) {
-                    displayMovie(allMovies[0]);
+                    displayMovie(allMovies.0);
                 } else {
                     alert('No movies available');
                 }
