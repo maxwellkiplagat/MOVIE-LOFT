@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded',  function(){
                 allMovies = data;
                 
                 if (allMovies.length > 0) {
-                    displayMovie(allMovies.0);
+                    displayMovie(allMovies[0]);
                 } else {
                     alert('No movies available');
                 }
@@ -25,6 +25,27 @@ document.addEventListener('DOMContentLoaded',  function(){
             .catch(error => {
                 console.error(error);
             });
+    }
+    function userTypedMovie() {
+        const searchTerm = searchInput.value.trim();
+        
+        if (!searchTerm) {
+            moviesContainer.innerHTML = '<p>Please enter a movie title to search</p>';
+            return;
+        }
+
+        const matchedMovie = allMovies.find(movie => 
+            movie.Title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+        moviesContainer.innerHTML = '';
+
+        if (matchedMovie) {
+            displayMovie(matchedMovie);
+        } else {
+             alert(`I can't find "${searchTerm}" please try another movie 😊`);
+        }
+        searchInput.value = '';
     }
 
 
