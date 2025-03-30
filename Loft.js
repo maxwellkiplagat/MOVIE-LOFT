@@ -154,6 +154,13 @@ document.addEventListener('DOMContentLoaded',  function(){
         form.style.visibility = currentOpacity === '0' ? 'visible' : 'hidden';
         form.style.pointerEvents = currentOpacity === '0' ? 'auto' : 'none';   
     }
+    document.getElementById('addMovie').addEventListener('click', toggleForm);    showAllButton.addEventListener('click', displayAllMovies);
+    genreDropdown.addEventListener('change', filteringTheGenre);
+    searchButton.addEventListener('click', userTypedMovie);
+    searchInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') userTypedMovie();
+    });
+   
 
 
 })
