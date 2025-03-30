@@ -127,6 +127,25 @@ document.addEventListener('DOMContentLoaded',  function(){
             if (e.target === gatsby) gatsby.remove();
         };
     }
+    myform.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const formData = {
+            Title: document.getElementById('oleTitle').value,
+            Genre: document.getElementById('oleGenre').value,
+            Year: document.getElementById('oleYear').value,
+            Plot: document.getElementById('olePlot').value,
+            trailer: document.getElementById('oleMovie').value,
+            Poster: document.getElementById('olePoster').value
+        }
+        fetch('http://localhost:3000/movies',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(formData)
+        })
+        myform.reset()
+    })
 
 
 })
