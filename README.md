@@ -37,7 +37,7 @@ in there you can search for a movie and check the trailer
     -Top Gun Maverick
 -to add a movie press the orange button it will toggle a form fill the required things on the posterURL section rightclick on the poster image youve searched in google the use the ```copy image address``` in the movieURL the smple below shows the section to pick :-
     -(https://youtu.be/iszwuX1AK6A?si=7psRlgh0mLYMGBvW) pick the section after youtube upto before the question mark that is :-
-        - iszwuX1AK6A -
+        ``` iszwuX1AK6A ```
         https://youtu.be/```iszwuX1AK6A```?si=7psRlgh0mLYMGBvW
         
     
